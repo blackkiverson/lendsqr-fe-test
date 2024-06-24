@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './(auth)/(login)/Login';
+// import Dashboard from './pages/Dashboard';
+// import Users from './pages/Users';
+// import UserDetails from './pages/UserDetails';
+// import './App.scss';
 
-function App() {
+const App: React.FC = () => {
+  const isAuth = localStorage.getItem('auth') === 'true';
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={isAuth ? <Navigate to="/dashboard" /> : <Login />} />
+        {/* <Route path="/dashboard" element={isAuth ? <Dashboard /> : <Navigate to="/" />} />
+        <Route path="/users" element={isAuth ? <Users /> : <Navigate to="/" />} />
+        <Route path="/user/:id" element={isAuth ? <UserDetails /> : <Navigate to="/" />} /> */}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
