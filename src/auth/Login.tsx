@@ -1,7 +1,7 @@
 import LoginForm from '../components/login/LoginForm';
 import '../styles/login.scss';
 
-const Login = () => {
+function Login() {
 	return (
 		<section className="login">
 			<div className="login-div">

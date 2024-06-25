@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import { FieldError, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 // Define the Props interface
 interface Props { }
@@ -17,7 +16,6 @@ const LoginForm: FC<Props> = () => {
     // Initialize useForm hook from react-hook-form
     const {
         register,
-        reset,
         handleSubmit,
         formState: { errors },
     } = useForm({
@@ -26,24 +24,14 @@ const LoginForm: FC<Props> = () => {
 
     // Define the form submission handler
     const onSubmit = async (data: any) => {
-        if (data) {
-            setLoading(true);
+        setLoading(true);
 
-            try {
-                // Send login request to the server
-                const response = await axios.post('/api/login', data);
-
-                // Check if the login is successful
-                if (response.status === 200) {
-                    reset();
-                    navigate('/dashboard');
-                }
-            } catch (error) {
-                console.error('Login failed:', error);
-            } finally {
-                setLoading(false);
-            }
-        }
+        // Simulate an API call
+        setTimeout(() => {
+            localStorage.setItem('auth', 'true'); // Set auth in localStorage
+            setLoading(false);
+            navigate('../../dashboard/DashboardLayout'); // Navigate to dashboard
+        }, 2000);
     };
 
     return (

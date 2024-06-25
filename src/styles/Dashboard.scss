@@ -1,0 +1,127 @@
+@import './variables.scss';
+
+body {
+    font-family: $avenirNext;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dashboard-layout {
+    background-color: #FBFBFB;
+	height: 100vh;
+	width: 100%;
+	position: relative;
+	font-family: $workSans;
+	.dashboard-container {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		height: 100%;
+		@include breakpointDesktop {
+			justify-content: flex-start;
+		}
+	}
+}
+
+.top-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.04);
+    position: fixed;
+    width: 97.9%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    @include breakpointTabletLg {
+        padding: 10px 10px
+    }
+
+    .search-bar {
+        flex: 1;
+        padding-left: 200px;
+        align-items: center;
+        display: flex;
+        @include breakpointDesktop {
+            display: none;
+        }
+        
+        input {
+            @include input;
+            border-top-right-radius: 0px;
+			border-bottom-right-radius: 0px;
+            width: 50%;
+            height: 20px;
+            padding: 8px;
+            border: 1px solid #CED4DA;
+            &:focus-within {
+                border: 1px solid $greenPrimary;
+            }
+        }
+
+        button {
+            @include buttonStyle;
+			border-top-left-radius: 0px;
+			border-bottom-left-radius: 0px;
+			width: 50px;
+			background-color: $greenPrimary;
+			display: flex;
+			justify-content: center;
+            padding: 12px;
+            cursor: default;
+            &:hover {
+                background-color: #60E4E2;
+            }
+        }
+
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        .docs{
+            margin-right: 20px;
+            cursor: default;
+            color: $bluePrimary;
+            &:hover {
+                color: $greenPrimary;
+            }
+        }
+
+        .alert {
+            margin-right: 20px;
+            height: 20px;
+            width: 20px;
+        }
+
+        .user-avatar {
+            margin-right: 5px;
+            height: 30px;
+            width: 30px;
+        }
+
+        .user-dropdown{
+            display: flex;
+            color: $bluePrimary;
+            &:hover {
+                color: $greenPrimary;
+            }
+
+            .user {
+                cursor: default;
+                padding-top: 5px;
+            }
+
+            .dropdown {
+                cursor: default;
+            }
+        }
+
+        
+
+
+    }
+}
