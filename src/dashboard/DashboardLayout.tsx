@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TopNavbar from '../components/dashboard/TopNavbar'
+import SideBar from '../components/dashboard/SideBar'
 import '../styles/Dashboard.scss'
 
+interface Props {}
+
 function DashboardLayout() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   return (
     <div className='dashboard-layout'>
       <TopNavbar/>
-      <div>
+      <div className='dashboard-container'>
+        <SideBar setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen}/>
         <div>
           {/* User's Table */}
         </div>

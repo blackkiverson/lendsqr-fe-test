@@ -12,12 +12,12 @@ body {
 	height: 100vh;
 	width: 100%;
 	position: relative;
-	font-family: $workSans;
 	.dashboard-container {
 		display: flex;
 		flex-direction: row;
 		width: 100%;
 		height: 100%;
+        padding-top: 70px;
 		@include breakpointDesktop {
 			justify-content: flex-start;
 		}
@@ -112,7 +112,8 @@ body {
 
             .user {
                 cursor: default;
-                padding-top: 5px;
+                padding-top: 4px;
+                font-weight: bolder;
             }
 
             .dropdown {
@@ -120,8 +121,61 @@ body {
             }
         }
 
-        
+    }
+}
 
+.side-nav {
+    width: 270px;
+    background-color: #FFFFFF;
+    height: 100vh;
+    color: $bluePrimary;
+    font-size: medium;
+    overflow-y: auto;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+    position: relative;
+    @include breakpointTabletLg {
+        display: none;
+    }
 
+    .side-nav-menu {
+        list-style: none;
+        padding-left: 0px;
+    
+        .side-nav-menu-item {
+          padding-right: 10px;
+          padding-top: 15px;
+          padding-bottom: 10px;
+          cursor: default;
+          display: flex;
+          align-items: center;
+          color: #A3B0C9;
+          &:hover {
+            color: $greenPrimary;
+          }
+          &.selected {
+            color: $bluePrimary;
+            background-color: #e0f7fa;
+            border-left: 4px solid #60E4E2;
+            
+          }
+    
+          img {
+            margin-right: 10px;
+            margin-left: 20px;
+          }
+        }
+    
+        .nav-item-header {
+          padding-left: 20px;
+          padding-top: 40px;
+          padding-bottom: 5px;
+          cursor: default;
+          font-size: smaller;
+
+          span {
+            font-weight: bold;
+          }
+        }
     }
 }
