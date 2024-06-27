@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './auth/Login';
-import Dashboard from './dashboard/DashboardLayout';
-// import Users from './pages/Users';
-// import UserDetails from './pages/UserDetails';
+import Login from './pages/auth/Login';
+import Dashboard from './pages/dashboard/DashboardLayout';
+import Users from './pages/users/Users';
+import UserDetails from './pages/users/UserDetail';
 // import './App.scss';
 
 const App: React.FC = () => {
@@ -13,9 +13,11 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={isAuth ? <Navigate to="/dashboard" /> : <Login />} />
-        <Route path="/dashboard" element={isAuth ? <Dashboard /> : <Navigate to="/" />} />
-        {/* <Route path="/users" element={isAuth ? <Users /> : <Navigate to="/" />} /> */}
-        {/* <Route path="/user/:id" element={isAuth ? <UserDetails /> : <Navigate to="/" />} /> */}
+        <Route path="/dashboard/*" element={isAuth ? <Dashboard /> : <Navigate to="/" />} >
+          <Route index element={<Users />} />
+					<Route index path="users" element={<Users />} />
+					<Route path="users/:id" element={<UserDetails />} />
+        </Route>
       </Routes>
     </Router>
   );

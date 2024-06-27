@@ -6,7 +6,7 @@
       username: '{{firstName()}}',
       email: '{{email()}}',
       phoneNumber: '+234{{phone()}}',
-      dateJoined: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-DDThh:mm:ss")}}',
+      dateJoined: '{{date(new Date(2020, 0, 1), new Date(), "MM-DD-YYYYhh:mm:ss")}}',
       status: '{{random("Active", "Inactive", "Pending", "Blacklisted")}}',
       bvn: '222{{integer(10000000, 99999999)}}',
       gender: '{{random("Male", "Female")}}',
@@ -33,3 +33,5 @@
       }
     }
 ]
+
+// https://run.mocky.io/v3/2fe94a95-b70a-4566-a79d-bd9c8c22b75e

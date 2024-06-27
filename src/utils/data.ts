@@ -121,7 +121,7 @@ export const navItems = [
 	},
 	{
 		title: 'Reports',
-		icon: '/icons/chart bar 2.svg',
+		icon: '/icons/chart-bar 2.svg',
 		link: '/dashboard',
 		id: 21,
 	},
@@ -149,27 +149,45 @@ export const navItems = [
 		link: '/dashboard',
 		id: 25,
 	},
+	{
+		title: '',
+		header: true,
+		link: '/dashboard',
+		id: 12,
+	},
+	{
+		title: 'Log Out',
+		icon: '/icons/sign-out 1.svg',
+		link: '/dashboard',
+		id: 13,
+	},
+	{
+		title: 'v1.2.0',
+		icon: '',
+		link: '',
+		id: 13,
+	},
 ];
 
-export const usersStats = [
+export const Stats = [
 	{
 		title: 'Users',
-		icon: '/icons/user-stat-icon-1.svg',
+		icon: '/images/icon (1).svg',
 		count: '2,453',
 	},
 	{
 		title: 'Active Users',
-		icon: '/icons/user-stat-icon-2.svg',
+		icon: '/images/icon (2).svg',
 		count: '2,453',
 	},
 	{
 		title: 'Users with loans',
-		icon: '/icons/user-stat-icon-3.svg',
+		icon: '/images/icon (3).svg',
 		count: '12,453',
 	},
 	{
 		title: 'Users with savings',
-		icon: '/icons/user-stat-icon-4.svg',
+		icon: '/images/icon (4).svg',
 		count: '102,453',
 	},
 ];

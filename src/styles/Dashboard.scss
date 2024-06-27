@@ -22,6 +22,18 @@ body {
 			justify-content: flex-start;
 		}
 	}
+    .dashboard-main {
+		width: 94.5%;
+		margin-top: -100px;
+	}
+	.dashboard {
+		padding: 140px 40px 40px 40px;
+		width: 100%;
+		overflow-y: auto;
+		@include breakpointDesktop {
+			padding: 100px 20px 40px 20px;
+		}
+	}
 }
 
 .top-navbar {
@@ -125,7 +137,7 @@ body {
 }
 
 .side-nav {
-    width: 270px;
+    width: 330px;
     background-color: #FFFFFF;
     height: 100vh;
     color: $bluePrimary;
