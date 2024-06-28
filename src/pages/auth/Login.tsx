@@ -14,7 +14,6 @@ function Login() {
 
 				<section className="login-form">
 					<img src="/images/logo.svg" alt="logo" className="logo" />
-
 					<LoginForm />
 				</section>
 			</div>

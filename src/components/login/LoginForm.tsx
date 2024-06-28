@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { FieldError, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,6 +11,8 @@ const LoginForm: FC<Props> = () => {
     const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
     // State to manage loading state
     const [loading, setLoading] = useState<boolean>(false);
+    // State to manage login success
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
     // useNavigate hook from react-router-dom for navigation
     const navigate = useNavigate();
     // Initialize useForm hook from react-hook-form
@@ -30,9 +32,16 @@ const LoginForm: FC<Props> = () => {
         setTimeout(() => {
             localStorage.setItem('auth', 'true'); // Set auth in localStorage
             setLoading(false);
-            navigate('../../dashboard/DashboardLayout'); // Navigate to dashboard
+            setIsLoggedIn(true); // Set login success state
         }, 2000);
     };
+
+    // useEffect to handle navigation after login
+    useEffect(() => {
+        if (!loading && isLoggedIn) {
+            navigate('../../dashboard/DashboardLayout'); // Navigate to dashboard
+        }
+    }, [loading, isLoggedIn, navigate]);
 
     return (
         <section className="login-section">

@@ -152,20 +152,20 @@ export const navItems = [
 	{
 		title: '',
 		header: true,
-		link: '/dashboard',
-		id: 12,
+		link: '',
+		id: 26,
 	},
 	{
 		title: 'Log Out',
 		icon: '/icons/sign-out 1.svg',
-		link: '/dashboard',
-		id: 13,
+		link: '/auth/login',
+		id: 27,
 	},
 	{
 		title: 'v1.2.0',
 		icon: '',
 		link: '',
-		id: 13,
+		id: 27,
 	},
 ];
 
