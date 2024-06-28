@@ -166,6 +166,7 @@ export const navItems = [
 		icon: '',
 		link: '',
 		id: 27,
+		isLogout: true
 	},
 ];
 

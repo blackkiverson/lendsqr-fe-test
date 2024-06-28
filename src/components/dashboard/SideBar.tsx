@@ -8,11 +8,11 @@ interface Props {
 }
 
 const SideBar: FC<Props> = ({ setIsMenuOpen, isMenuOpen }) => {
-  const pathname: String = useLocation().pathname;
+  const pathname: string = useLocation().pathname;
   const navigate = useNavigate();
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
-  const isRouteActive = (route: String) => {
+  const isRouteActive = (route: string) => {
     if (pathname === '/dashboard' && route === '/dashboard') {
       return true;
     }
@@ -24,20 +24,42 @@ const SideBar: FC<Props> = ({ setIsMenuOpen, isMenuOpen }) => {
     setSelectedId(id);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('auth');
+    navigate('/auth/login');
+  };
+
   return (
     <div className={`side-nav ${isMenuOpen && 'nav-active'}`}>
-      <div className="">
+      <div>
         <ul className="side-nav-menu">
           {navItems.map((item) => {
+            if (item.isLogout) {
+              return (
+                <div key={item.id}>
+                  <li
+                    className={`side-nav-menu-item ${isRouteActive(item.link) ? 'active' : ''} ${
+                      selectedId === item.id ? 'selected' : ''
+                    }`}
+                    onClick={handleLogout}
+                  >
+                    <img src={item.icon} alt="" />
+                    <span>{item.title}</span>
+                  </li>
+                </div>
+              );
+            }
             return (
               <div key={item.id}>
                 {!item.header ? (
-                  <Link to={`${item.link}`} style={{ textDecoration: 'none' }}>
-                    <li className={`side-nav-menu-item ${isRouteActive(item.link) ? 'active' : ''} ${
-                      selectedId === item.id ? 'selected' : ''
-                    }`}
-                    onClick={() => handleSelection(item.id)}>
-                      {!item.header && <img src={item.icon} alt=''/>}
+                  <Link to={item.link} style={{ textDecoration: 'none' }}>
+                    <li
+                      className={`side-nav-menu-item ${isRouteActive(item.link) ? 'active' : ''} ${
+                        selectedId === item.id ? 'selected' : ''
+                      }`}
+                      onClick={() => handleSelection(item.id)}
+                    >
+                      {!item.header && <img src={item.icon} alt="" />}
                       <span style={{ color: item.id === 1 ? '#213f7d' : 'inherit' }}>{item.title}</span>
                       {item.id === 1 && (
                         <span>
